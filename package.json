@@ -1,0 +1,35 @@
+{
+  "name": "json-proxy",
+  "version": "0.0.0",
+  "main": "lib/json-proxy.js",
+  "description": "takes an http stream of json objects and retransmits them one by one to another destination",
+  "homepage": "https://github.com/ironSource/json-proxy",
+  "bugs": "https://github.com/ironSource/json-proxy/issues",
+  "author": {
+    "name": "Yaniv Kessler",
+    "email": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ironSource/json-proxy"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.0",
+    "load-grunt-tasks": "~0.2.0",
+    "time-grunt": "~0.1.1",
+    "jshint-stylish": "~0.1.3",
+    "grunt-mocha-test": "~0.7.0"
+  },
+  "dependencies": {
+    "rc": "~0.3.2",
+    "stream-slicer": "0.0.6",
+    "lodash": "~2.4.1"
+  }
+}
