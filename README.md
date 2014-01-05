@@ -7,6 +7,10 @@ takes a big http stream of json objects and resends them one by one to one or mo
 git clone https://github.com/ironSource/json-proxy
 cd json-proxy
 node json-proxy
+
+// or
+
+node json-proxy --port=8080
 ```
 
 ## Config
@@ -23,7 +27,7 @@ create a file called .json-proxyrc in any of the locations specified here: [RC m
 	}
 }
 ```
-file most pass json validation, such as [jsonlint.com](http://jsonlint.com/)
+file must pass json validation, such as [jsonlint.com](http://jsonlint.com/)
 
 ### port
 the port used by the proxy to listen to incoming requests
