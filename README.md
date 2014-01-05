@@ -6,11 +6,11 @@ takes a big http stream of json objects and resends them one by one to one or mo
 ```
 git clone https://github.com/ironSource/json-proxy
 cd json-proxy
-node json-proxy
+node proxy-server
 
 // or
 
-node json-proxy --port=8080
+node proxy-server --port=8080
 ```
 
 ## Config
