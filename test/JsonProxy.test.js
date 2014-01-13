@@ -7,6 +7,7 @@ var assert = require('assert');
 
 var testDataFilename = path.join(__dirname, 'testdata');
 var testdata = fs.readFileSync(testDataFilename, 'utf8');
+var endOfLine = require('os').EOL;
 
 function createIncomingStream() {
 	return fs.createReadStream(testDataFilename);
@@ -40,7 +41,7 @@ describe('JsonProxy', function () {
 			for (var i = 0; i < requestData.length; i++) {
 
 				if (i > 0)
-					data += '\r\n';
+					data += endOfLine;
 
 				data += JSON.stringify(requestData[i]);
 			}
