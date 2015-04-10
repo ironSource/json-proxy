@@ -4,20 +4,20 @@ takes an http stream of json objects and resends them one by one to one or more 
 
 ## Install
 ```
-npm install -g json-proxy
+npm install -g jsonproxy
 jsonproxy --port=8080 --targets."http://localhost:7171"=10 --targets."http://localhost:7272"=10
 ```
 
 ## use programmatically
 install locally:
 ```
-npm install --save json-proxy
+npm install --save jsonproxy
 ```
 
 expose using an http server:
 ```javascript
 var http = require('http')
-var jsonProxy = require('json-proxy');
+var jsonProxy = require('jsonproxy');
 
 // will clone the default config
 var config = jsonProxy.config();

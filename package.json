@@ -1,7 +1,7 @@
 {
-  "name": "json-proxy",
+  "name": "jsonproxy",
   "version": "1.0.1",
-  "main": "lib/json-proxy.js",
+  "main": "lib/index.js",
   "description": "takes an http stream of json objects and retransmits them one by one to another destination",
   "homepage": "https://github.com/ironSource/json-proxy",
   "bugs": "https://github.com/ironSource/json-proxy/issues",
