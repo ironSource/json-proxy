@@ -75,6 +75,7 @@ Take care to maintain the existing coding style. Add unit tests for any new or c
 
 ## Release History
 5.1.2014 - initial release
+
 10.4.2015 - code refresh and publish to npm
 
 ## License
