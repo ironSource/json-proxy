@@ -9,9 +9,12 @@ jsonproxy --port=8080 --targets."http://localhost:7171"=10 --targets."http://loc
 ```
 
 ## use programmatically
+install locally:
 ```
-npm install json-proxy
+npm install --save json-proxy
 ```
+
+expose using an http server:
 ```javascript
 var http = require('http')
 var jsonProxy = require('json-proxy');
