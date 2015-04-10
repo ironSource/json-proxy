@@ -2,6 +2,7 @@ var JsonProxy = require('../lib/JsonProxy.js');
 var fs = require('fs');
 var path = require('path');
 var config = require('../lib/config.js');
+var _ = require('lodash')
 var EventEmitter = require('events').EventEmitter;
 var assert = require('assert');
 
@@ -14,9 +15,10 @@ function createIncomingStream() {
 }
 
 describe('JsonProxy', function () {
+	var conf
 
 	it('takes a stream of json objects and retransmits them one by one to another destination', function (done) {
-		var proxy = new JsonProxy(config);
+		var proxy = new JsonProxy(conf);
 
 		var requestData = [];
 		var emitter = new EventEmitter();
@@ -54,4 +56,8 @@ describe('JsonProxy', function () {
 		emitter.emit('response', { statusCode: 200 });
 	});
 
+	beforeEach(function () {
+		conf = _.cloneDeep(config)
+		conf.targets['http://localhost'] = 10
+	})
 });
