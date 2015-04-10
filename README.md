@@ -1,18 +1,47 @@
 # json-proxy [![Build Status](https://secure.travis-ci.org/ironSource/json-proxy.png?branch=master)](http://travis-ci.org/ironSource/json-proxy)
 
-takes a big http stream of json objects and resends them one by one to one or more destinations
+takes an http stream of json objects and resends them one by one to one or more destinations
 
 ## Install
 ```
-git clone https://github.com/ironSource/json-proxy
-cd json-proxy
-node proxy-server
-
-// or
-
-node proxy-server --port=8080
+npm install -g json-proxy
+jsonproxy --port=8080 --targets."http://localhost:7171"=10 --targets."http://localhost:7272"=10
 ```
 
+## use programmatically
+```
+npm install json-proxy
+```
+```javascript
+var http = require('http')
+var jsonProxy = require('json-proxy');
+
+// will clone the default config
+var config = jsonProxy.config();
+
+// override just what we want
+config.targets['http://localhost:7171'] = 10;
+config.targets['http://localhost:7272'] = 10;
+
+var proxyServer = new jsonProxy.Server(config)
+
+var httpServer = http.createServer(function(request, response) {
+
+    proxyServer.accept(request, function(err) {
+        if (err) {
+            response.statusCode = 500
+        }
+
+        response.end();
+    });
+
+});
+
+httpServer.listen(8282, function () {
+    console.log('proxy ready at http://localhost:%s', 8282)
+});
+
+```
 ## Config
 create a file called .json-proxyrc in any of the locations specified here: [RC module](https://github.com/dominictarr/rc)
 ```json
@@ -39,10 +68,11 @@ you can specify one or more targets here in the form of "url": "concurrency leve
 In the event that an outgoing json request fails the proxy will attempt retries using an [exponential backoff algorithm](http://en.wikipedia.org/wiki/Exponential_backoff). Use maxRetries and timeSlot to control the algorithm behaviour. timeSlot is the basic unit which is used to calculate delays between attempts, it is not the exact delay used.
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/). Run grunt watch while developing.
+Take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/). Run grunt watch while developing.
 
 ## Release History
 5.1.2014 - initial release
+10.4.2015 - code refresh and publish to npm
 
 ## License
 Copyright (c) 2014 ironSource. Licensed under the MIT license.
