@@ -8,13 +8,13 @@ npm install -g jsonproxy
 jsonproxy --port=8080 --targets."http://localhost:7171"=10 --targets."http://localhost:7272"=10
 ```
 
-## use programmatically
-install locally:
+## Use programmatically
+#### install locally:
 ```
 npm install --save jsonproxy
 ```
 
-expose using an http server:
+#### expose using an http server:
 ```javascript
 var http = require('http')
 var jsonProxy = require('jsonproxy');
