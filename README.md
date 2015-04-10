@@ -1,4 +1,4 @@
-# json-proxy [![Build Status](https://secure.travis-ci.org/ironSource/json-proxy.png?branch=master)](http://travis-ci.org/ironSource/json-proxy)
+# jsonproxy [![Build Status](https://secure.travis-ci.org/ironSource/json-proxy.png?branch=master)](http://travis-ci.org/ironSource/json-proxy)
 
 takes an http stream of json objects and resends them one by one to one or more destinations
 
